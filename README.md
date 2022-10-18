@@ -1,4 +1,8 @@
 # vue_test
+## Description
+Learning of Vue2 contains an example of user searching in the Github and an example TodoList
+
+[link](https://www.bilibili.com/video/BV1Zy4y1K7SH)
 
 ## Project setup
 ```
