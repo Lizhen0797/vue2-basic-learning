@@ -1,21 +1,44 @@
 <template>
-  <div class="container">
-    <MyCount />
-    <hr/>
-    <MyPerson />
+  <div>
+    <div class="row">
+      <MyBanner />
+    </div>
+    <div class="row">
+      <div class="col-xs-2 col-xs-offset-2">
+        <div class="list-group">
+          <!--原始使用a标签跳转多个页面,多页面应用-->
+          <!--          <a class="list-group-item active" href="./about.html">About</a>-->
+          <!--          <a class="list-group-item" href="./home.html">Home</a>-->
+          <!--vue中借助router=link标签实现路由的切换-->
+          <!--          <router-link class="list-group-item" active-class="active" to="/about">About</router-link>-->
+          <router-link
+            class="list-group-item"
+            active-class="active"
+            to="/about"
+            >About</router-link
+          >
+          <router-link class="list-group-item" active-class="active" to="/home"
+            >Home</router-link
+          >
+        </div>
+      </div>
+      <div class="col-xs-6">
+        <div class="panel">
+          <div class="panel-body">
+            <!--router-view确定视图的位置-->
+            <router-view> </router-view>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 </template>
 
 <script>
-import MyCount from './components/MyCount.vue'
-import MyPerson from './components/MyPerson.vue'
-
+import MyBanner from './components/MyBanner'
 export default {
   name: 'App',
-  components: {
-    MyCount,
-    MyPerson,
-  },
+  components: { MyBanner },
   data() {
     return {}
   },
@@ -26,49 +49,4 @@ export default {
 }
 </script>
 
-<style>
-body {
-  background: #fff;
-}
-
-.btn {
-  display: inline-block;
-  padding: 4px 12px;
-  margin-bottom: 0;
-  font-size: 14px;
-  line-height: 20px;
-  text-align: center;
-  vertical-align: middle;
-  cursor: pointer;
-  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2),
-    0 1px 2px rgba(0, 0, 0, 0.05);
-  border-radius: 4px;
-}
-
-.btn-danger {
-  color: #fff;
-  background-color: #da4f49;
-  border: 1px solid #bd362f;
-}
-
-.btn-edit:hover {
-  color: #fff;
-  background-color: skyblue;
-  border: rgb(103, 159, 180);
-  margin-right: 5px;
-}
-
-.btn:focus {
-  outline: none;
-}
-
-.todo-container {
-  width: 600px;
-  margin: 0 auto;
-}
-.todo-container .todo-wrap {
-  padding: 10px;
-  border: 1px solid #ddd;
-  border-radius: 5px;
-}
-</style>
+<style></style>
