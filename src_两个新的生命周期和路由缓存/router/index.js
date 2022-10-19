@@ -5,49 +5,27 @@ import MyNews from '../pages/MyNews'
 import MyMessage from '../pages/MyMessage'
 import MyDetail from '../pages/MyDetail'
 
-const router = new VueRouter({
+export default new VueRouter({
   routes: [
     {
-      name: 'about',
       path: '/about',
       component: MyAbout,
-      meta: {
-        title: '关于',
-      },
     },
     {
-      name: 'home',
       path: '/home',
       component: MyHome,
-      meta: {
-        title: '主页',
-      },
       children: [
         {
-          name: 'news',
           path: 'news',
           component: MyNews,
-          meta: {
-            isAuth: true,
-            title: '新闻',
-          },
         },
         {
-          name: 'message',
           path: 'message',
           component: MyMessage,
-          meta: {
-            isAuth: true,
-            title: '消息',
-          },
           children: [
             {
-              name: 'detail',
               path: 'detail',
               component: MyDetail,
-              meta: {
-                title: '详情',
-              },
               // props 的三种写法
               // 第一种
               // props: {a:1, b: 'hello'}
@@ -58,8 +36,8 @@ const router = new VueRouter({
               //   return {id: '666', title: '你好啊'}
               // }
               props($route) {
-                return { id: $route.query.id, title: $route.query.title }
-              },
+                return {id: $route.query.id, title: $route.query.title}
+              }
             },
           ],
         },
@@ -67,5 +45,3 @@ const router = new VueRouter({
     },
   ],
 })
-
-export default router

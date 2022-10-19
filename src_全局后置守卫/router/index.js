@@ -67,5 +67,35 @@ const router = new VueRouter({
     },
   ],
 })
+//全局 前置路由守卫 初始化的时候被调用以及每次路由切换的时候调用
+// router.beforeEach((to, _from, next)=>{
+//   //console.log(to, from)
+
+//   if(to.name === 'news' || to.name === 'message') {
+//     if (localStorage.getItem('school') === 'lizhen') {
+//       next()
+//     }
+//   } else {
+//     next()
+//   }
+// })
+
+router.beforeEach((to, _from, next) => {
+  //console.log(to, from)
+
+  if (to.meta.isAuth) {
+    if (localStorage.getItem('school') === 'lizhen') {
+      next()
+    }
+  } else {
+    next()
+  }
+})
+//全局 后置路由守卫 初始化的时候被调用以及每次路由切换后的时候调用
+// 没有next
+router.afterEach((to, _from) => {
+  console.log(_from)
+  document.title = to.meta.title || '主页'
+})
 
 export default router

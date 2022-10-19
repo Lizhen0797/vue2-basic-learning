@@ -17,13 +17,6 @@ export default {
   mounted() {},
 
   methods: {},
-
-  beforeRouteEnter(_, __, next) {
-    next()
-  },
-  beforeRouteLeave(_, __, next) {
-    next()
-  },
 }
 </script>
 

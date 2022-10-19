@@ -11,17 +11,11 @@ const router = new VueRouter({
       name: 'about',
       path: '/about',
       component: MyAbout,
-      meta: {
-        title: '关于',
-      },
     },
     {
       name: 'home',
       path: '/home',
       component: MyHome,
-      meta: {
-        title: '主页',
-      },
       children: [
         {
           name: 'news',
@@ -29,7 +23,6 @@ const router = new VueRouter({
           component: MyNews,
           meta: {
             isAuth: true,
-            title: '新闻',
           },
         },
         {
@@ -38,16 +31,12 @@ const router = new VueRouter({
           component: MyMessage,
           meta: {
             isAuth: true,
-            title: '消息',
           },
           children: [
             {
               name: 'detail',
               path: 'detail',
               component: MyDetail,
-              meta: {
-                title: '详情',
-              },
               // props 的三种写法
               // 第一种
               // props: {a:1, b: 'hello'}
@@ -66,6 +55,30 @@ const router = new VueRouter({
       ],
     },
   ],
+})
+//全局 前置路由守卫 初始化的时候被调用以及每次路由切换的时候调用
+// router.beforeEach((to, _from, next)=>{
+//   //console.log(to, from)
+
+//   if(to.name === 'news' || to.name === 'message') {
+//     if (localStorage.getItem('school') === 'lizhen') {
+//       next()
+//     }
+//   } else {
+//     next()
+//   }
+// })
+
+router.beforeEach((to, _from, next) => {
+  //console.log(to, from)
+
+  if (to.meta.isAuth) {
+    if (localStorage.getItem('school') === 'lizhen') {
+      next()
+    }
+  } else {
+    next()
+  }
 })
 
 export default router

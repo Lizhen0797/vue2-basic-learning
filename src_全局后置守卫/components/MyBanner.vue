@@ -1,14 +1,13 @@
 <template>
-  <ul>
-    <li>消息编号 {{ id }}</li>
-    <li>消息标题 {{ title }}</li>
-  </ul>
+  <div>
+    <h2>Vue Router Demo</h2>
+  </div>
 </template>
 
 <script>
 export default {
-  name: 'MyDetail',
-  props:['id', 'title'],
+  name: 'MyBanner',
+
   data() {
     return {}
   },
