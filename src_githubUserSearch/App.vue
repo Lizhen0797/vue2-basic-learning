@@ -1,20 +1,19 @@
 <template>
   <div class="container">
-    <MyCount />
-    <hr/>
-    <MyPerson />
+    <MySearch />
+    <MyList />
   </div>
 </template>
 
 <script>
-import MyCount from './components/MyCount.vue'
-import MyPerson from './components/MyPerson.vue'
+import MySearch from './components/MySearch.vue'
+import MyList from './components/MyList.vue'
 
 export default {
   name: 'App',
   components: {
-    MyCount,
-    MyPerson,
+    MyList,
+    MySearch,
   },
   data() {
     return {}

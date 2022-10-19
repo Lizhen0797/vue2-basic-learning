@@ -1,27 +1,25 @@
 <template>
   <div class="container">
-    <MyCount />
-    <hr/>
-    <MyPerson />
+    <MyCount/>
   </div>
 </template>
 
 <script>
-import MyCount from './components/MyCount.vue'
-import MyPerson from './components/MyPerson.vue'
+import MyCount from './components/MyCount.vue';
 
 export default {
   name: 'App',
   components: {
-    MyCount,
-    MyPerson,
-  },
+    MyCount
+},
   data() {
     return {}
   },
   methods: {},
   watch: {},
-  mounted() {},
+  mounted() {
+    console.log(this)
+  },
   beforeDestroy() {},
 }
 </script>
